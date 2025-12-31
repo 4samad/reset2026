@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RESET 2026 - 30 Days Digital Detox
 
-## Getting Started
+A privacy-first, mobile-first web application for a 30-day digital detox program by [Detox Mind](https://detoxmind.org).
 
-First, run the development server:
+## ✨ Features
+
+- 🔐 **Google OAuth** authentication with anonymous usernames
+- 📱 **Mobile-first** responsive design
+- 🎨 **Calm UI** - low-dopamine, trauma-informed interface
+- 📊 **Progress Tracking** - visual 30-day grid
+- 💬 **Daily Check-ins** - relapse-friendly with supportive feedback
+- 📚 **Reading Resources** - filterable by tags
+- 👥 **Community Testimonials** - anonymous peer stories
+- ⚙️ **WhatsApp Integration** - optional daily reminders & mentor check-ins
+- 🔒 **Privacy-first** - no real names, minimal data storage
+- 👨‍💼 **Admin Dashboard** - anonymous user analytics
+
+## 🚀 Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Configure Google OAuth (see SETUP.md)
+# Edit .env.local with your credentials
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📚 Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **[QUICK_START.md](QUICK_START.md)** - Get running in 3 steps
+- **[SETUP.md](SETUP.md)** - Detailed setup instructions
+- **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Complete feature overview
 
-## Learn More
+## 🏗️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** Next.js 16.1.1 (App Router)
+- **Styling:** Tailwind CSS 4
+- **Language:** TypeScript
+- **Auth:** NextAuth.js v5
+- **Storage:** localStorage (temporary - needs database)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+reset2026/
+├── app/                    # Next.js pages
+│   ├── admin/             # Admin dashboard
+│   ├── auth/signin/       # Login page
+│   ├── dashboard/         # Main user dashboard
+│   ├── onboarding/        # 3-step onboarding
+│   └── settings/          # User settings
+├── components/            # Reusable React components
+├── lib/                   # Utilities & mock data
+├── types/                 # TypeScript definitions
+├── auth.ts               # NextAuth config
+└── proxy.ts              # Route protection
+```
 
-## Deploy on Vercel
+## 🎯 Design Principles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Mobile-first responsive design
+- Calm, low-dopamine UI
+- Non-judgmental copy
+- Explicit relapse support
+- No streak shaming
+- Privacy-first approach
+- Anonymous by default
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚠️ Before Production
+
+**Current Setup:** Uses browser localStorage (temporary)
+
+**TODO:** Replace with real database
+- Set up PostgreSQL/MongoDB
+- Create API routes
+- Update all `// TODO:` comments in the code
+
+Search for: `// TODO:` to find all integration points
+
+## 🚢 Deploy
+
+### Vercel (Recommended)
+```bash
+npm run build
+vercel
+```
+
+### Other Platforms
+- Netlify
+- Railway
+- AWS Amplify
+- Any Node.js hosting
+
+Add environment variables in your platform's dashboard.
+
+## 📝 License
+
+Copyright © 2026 Detox Mind. All rights reserved.
+
+## 🤝 Support
+
+- Website: [detoxmind.org](https://detoxmind.org)
+- Email: support@detoxmind.org
+
+---
+
+Built with care for Kerala youth struggling with digital addiction.
