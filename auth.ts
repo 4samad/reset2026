@@ -19,4 +19,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: '/auth/signin',
   },
+  trustHost: true, // Required for deployment on Netlify/Vercel
 });
