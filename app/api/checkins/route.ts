@@ -91,23 +91,26 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    // Update user.currentDay based on status
-    let newCurrentDay = user.currentDay;
-    if (status === 'strong') {
-      // Increment day (max 30)
-      newCurrentDay = Math.min(user.currentDay + 1, 30);
-    } else if (status === 'relapsed') {
-      // Reset to day 1
-      newCurrentDay = 1;
+    // If this is the user's first ever check-in, set dateJoined
+    if (!user.dateJoined) {
+      user.dateJoined = new Date(date); // Use the check-in date
+      await user.save();
     }
-    // For 'struggled', currentDay stays the same
+
+    // Calculate current day number based on days since dateJoined
+    const dateJoinedTime = new Date(user.dateJoined).getTime();
+    const currentDateTime = new Date(date).getTime();
+    const daysSinceJoined = Math.floor(
+      (currentDateTime - dateJoinedTime) / (1000 * 60 * 60 * 24)
+    );
+    const currentDay = Math.min(daysSinceJoined + 1, 30); // Day 1 = dateJoined, max 30
 
     // Upsert check-in (update if exists for this date, create if not)
     const checkIn = await DailyCheckIn.findOneAndUpdate(
       { userId: user._id, date },
       {
         status,
-        dayNumber: newCurrentDay,
+        dayNumber: currentDay,
       },
       {
         upsert: true,
@@ -117,7 +120,7 @@ export async function POST(request: NextRequest) {
     );
 
     // Update user's currentDay
-    user.currentDay = newCurrentDay;
+    user.currentDay = currentDay;
     await user.save();
 
     // Return check-in

@@ -26,14 +26,34 @@ export default function OnboardingPage() {
   const [goal, setGoal] = useState('');
 
   useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/auth/signin');
-      return;
+    async function checkExistingUser() {
+      if (status === 'unauthenticated') {
+        router.push('/auth/signin');
+        return;
+      }
+
+      if (status === 'authenticated') {
+        // Check if user already exists and has completed onboarding
+        try {
+          const response = await fetch('/api/users/me');
+          const data = await response.json();
+
+          if (data.user && data.user.onboardingCompleted) {
+            // User already exists and completed onboarding, redirect to dashboard
+            router.push('/dashboard');
+            return;
+          }
+        } catch (error) {
+          console.error('Error checking existing user:', error);
+        }
+      }
+
+      if (step === 'username') {
+        setSuggestions(generateUsernameSuggestions(4));
+      }
     }
 
-    if (step === 'username') {
-      setSuggestions(generateUsernameSuggestions(4));
-    }
+    checkExistingUser();
   }, [status, router, step]);
 
   const handleUsernameSubmit = (e: React.FormEvent) => {

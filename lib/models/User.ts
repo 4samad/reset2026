@@ -4,6 +4,7 @@ export interface IUser {
   email: string;
   username: string;
   createdAt: Date;
+  dateJoined?: Date; // Date of first check-in
   currentDay: number;
   whatsappOptIn: boolean;
   whatsappNumber?: string;
@@ -35,10 +36,13 @@ const UserSchema = new Schema<IUser>(
       type: Date,
       default: Date.now,
     },
+    dateJoined: {
+      type: Date,
+    },
     currentDay: {
       type: Number,
-      default: 1,
-      min: 1,
+      default: 0,
+      min: 0,
       max: 30,
     },
     whatsappOptIn: {

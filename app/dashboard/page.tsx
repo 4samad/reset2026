@@ -6,6 +6,8 @@ import { useSession } from 'next-auth/react';
 import Header from '@/components/Header';
 import ProgressTracker from '@/components/ProgressTracker';
 import ReadingResourcesSection from '@/components/ReadingResourcesSection';
+import YouTubeVideoSection from '@/components/YouTubeVideoSection';
+import PsychologistCTA from '@/components/PsychologistCTA';
 import ImageSection from '@/components/ImageSection';
 import Footer from '@/components/Footer';
 import { User, DailyCheckIn, CheckInStatus } from '@/types';
@@ -239,9 +241,19 @@ export default function DashboardPage() {
           </div>
         </div>
 
+        {/* Psychologist Support CTA */}
+        <div className="animate-slide-up mb-10" style={{ animationDelay: '0.225s' }}>
+          <PsychologistCTA />
+        </div>
+
         {/* Resources */}
-        <div className="animate-slide-up mb-10" style={{ animationDelay: '0.25s' }}>
+        <div className="animate-slide-up mb-10" style={{ animationDelay: '0.24s' }}>
           <ReadingResourcesSection />
+        </div>
+
+        {/* YouTube Video */}
+        <div className="animate-slide-up mb-10" style={{ animationDelay: '0.25s' }}>
+          <YouTubeVideoSection />
         </div>
 
         {/* Full Width Image */}
