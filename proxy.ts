@@ -14,6 +14,12 @@ export default auth((req) => {
     return NextResponse.next();
   }
 
+  // Allow static files (images, fonts, etc.)
+  const isStaticFile = pathname.match(/\.(png|jpg|jpeg|gif|webp|svg|ico|css|js|woff|woff2|ttf|otf)$/i);
+  if (isStaticFile) {
+    return NextResponse.next();
+  }
+
   // Redirect to signin if not authenticated
   if (!isLoggedIn && pathname !== '/') {
     const signInUrl = new URL('/auth/signin', req.url);
