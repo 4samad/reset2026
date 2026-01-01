@@ -1,6 +1,6 @@
 'use client';
 
-import { testimonials } from '@/lib/mockData';
+import { testimonials } from '@/data/content';
 
 export default function TestimonialCard() {
   return (

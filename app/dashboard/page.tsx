@@ -11,7 +11,7 @@ import PsychologistCTA from '@/components/PsychologistCTA';
 import ImageSection from '@/components/ImageSection';
 import Footer from '@/components/Footer';
 import { User, DailyCheckIn, CheckInStatus } from '@/types';
-import { dailyFocuses } from '@/lib/mockData';
+import { dailyFocuses } from '@/data/content';
 import { formatDate, getSupportiveMessage } from '@/lib/utils';
 import { CHECK_IN_OPTIONS } from '@/lib/constants';
 import { FaFire } from 'react-icons/fa';

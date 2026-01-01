@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { readingResources } from '@/lib/mockData';
+import { readingResources } from '@/data/content';
 import Image from 'next/image';
 
 export default function ReadingResourcesSection() {

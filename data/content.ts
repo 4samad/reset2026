@@ -83,57 +83,6 @@ export const readingResources: ReadingResource[] = [
   }
 ];
 
-export const testimonials: Testimonial[] = [
-  {
-    id: '1',
-    text: 'Day 7 was hard, but I made it. First week done.',
-    username: 'quiet-river',
-    day: 7
-  },
-  {
-    id: '2',
-    text: 'Relapsed on day 12. Started again. No shame this time.',
-    username: 'steady-mountain',
-    day: 12
-  },
-  {
-    id: '3',
-    text: 'Sleep feels different now. Didn\'t expect that.',
-    username: 'blue-panda',
-    day: 15
-  },
-  {
-    id: '4',
-    text: 'The urges still come, but they pass faster now.',
-    username: 'curious-pineapple',
-    day: 21
-  },
-  {
-    id: '5',
-    text: 'Made it to 30. Starting another round.',
-    username: 'calm-ocean',
-    day: 30
-  },
-  {
-    id: '6',
-    text: 'Day 3. One hour at a time.',
-    username: 'brave-wolf',
-    day: 3
-  },
-  {
-    id: '7',
-    text: 'Struggled today but didn\'t give in. Small win.',
-    username: 'gentle-hawk',
-    day: 9
-  },
-  {
-    id: '8',
-    text: 'The reading resources actually help. Especially the one about shame.',
-    username: 'peaceful-deer',
-    day: 18
-  }
-];
-
 export const dailyFocuses: DailyFocus[] = [
   { day: 1, text: 'You decided to start. That\'s enough for today.' },
   { day: 2, text: 'Notice the urges without acting on them.' },
